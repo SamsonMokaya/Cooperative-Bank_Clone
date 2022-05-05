@@ -621,7 +621,7 @@ body .uwy.userway_p5 .uai {
       </p>
     </div>
   </div>
-</footer>, initial-scale=1.0">
+</footer>
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://raw.githack.com/hsynlms/zeynepjs/master/dist/zeynep.min.js"></script>
