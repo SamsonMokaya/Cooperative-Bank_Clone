@@ -20,7 +20,7 @@
       <div class="container">
         <div class="row" style="text-align: center; margin-left:10%; margin-right:10%;">
           <h1 style="text-align: center; color:white; margin-top:5%; margin-bottom:5%;"> Sign Up </h1>
-          <form action="<?= base_url("signUserIn/") ?>" method="POST">
+          <form action="<?= base_url("signUserUp/") ?>" method="POST">
             <div class="form-floating mb-3">
               <input
                 type="text"

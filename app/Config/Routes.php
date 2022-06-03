@@ -31,25 +31,22 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'HomeController::index');
+$routes->get('/', 'HomeController::showWelcomePage');
 
-// user routes
+// general routes
 $routes_and_functions=[
-    'userHomePage/'=> 'UserController::showHomePage',
-    'signUpPage/'=>'HomeController::showSignUpPage',
-    'signInPage/'=>'HomeController::showSignInPage',
+    'showWelcomePage'=>'HomeController::showWelcomePage',
 
-    'signUserUp/'=>'UserController::signUserUp',
-    'signUserIn/'=>'UserController::signUserIn',
-    'logUserOut/'=>'UserController::logUserOut',
 ];
 
 foreach ($routes_and_functions as $route=>$function){
     $routes->match(['get', 'post'], $route, $function);
 }
 
+//user routes
 
 // admin routes
+
 
 /*
  * --------------------------------------------------------------------
