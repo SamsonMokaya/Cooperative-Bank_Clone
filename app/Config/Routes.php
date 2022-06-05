@@ -36,17 +36,32 @@ $routes->get('/', 'HomeController::showWelcomePage');
 // general routes
 $routes_and_functions=[
     'showWelcomePage'=>'HomeController::showWelcomePage',
-
+    'showSignUpPage'=>'HomeController::showSignUpPage',
+    'showSignInPage'=>'HomeController::showSignInPage',
 ];
-
 foreach ($routes_and_functions as $route=>$function){
     $routes->match(['get', 'post'], $route, $function);
 }
 
 //user routes
+$user_routes_functions=[
+    'signUp/'=>'UserController::signUp',
+    'signIn/'=>'UserController::signIn',
+    'user_HomePage/'=>'UserController::showHomePage',
+    'user_DepWithPage/'=>'UserController::showDepWithPage',
+    'user_DepWith/'=>'UserController::depositOrWithdraw',
+];
+foreach($user_routes_functions as $route=>$function){
+    $routes->match(['get', 'post'], $route, $function);
+}
 
 // admin routes
-
+$user_routes_functions=[
+    'admin/HomePage'=>'AdminController::showHomePage',
+];
+foreach($user_routes_functions as $route=>$function){
+    $routes->match(['get', 'post'], $route, $function);
+}
 
 /*
  * --------------------------------------------------------------------

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-    <script src="js/General/general_js.js"></script>
-    <link rel="stylesheet" href="/css/User/bootstrap.min.css">
-  <title>Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/BootstrapMini.css">
+  <title>Welcome Page</title>
 </head>
+
 <body>
   <div>
     <header>
@@ -53,57 +55,65 @@
       body {
         margin: 0;
       }
-      .co-op-logo{
+
+      .co-op-logo {
         display: inline-block;
         width: 64px;
-          height: 67px;
-          background: url("/Images/General/co-op-Bank - transparent logo.png");
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover;
-          opacity: 1;
+        height: 67px;
+        background: url("/Images/General/co-op-Bank - transparent logo.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 1;
       }
+
       header {
         background: mediumseagreen;
         height: 75px;
       }
+
       .logo-container {
         width: 100%;
         display: flex;
         align-items: center;
       }
+
       .logo {
         display: inline-block;
         color: rgba(18, 75, 68, 1);
-          font-family: Inter;
-          font-weight: Bold;
-          font-size: 40px;
+        font-family: Inter;
+        font-weight: Bold;
+        font-size: 40px;
       }
-      .sign-up{
+
+      .sign-up {
         width: 250px;
         margin-right: 15px;
         margin-left: auto;
         background-color: rgba(18, 75, 68, 1);
         border-radius: 10px;
       }
+
       main {
-          width: 100%;
-          height: 500px;
-          background: url("/Images/General/home-banner-scaled.jpg");
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover;
-          opacity: 1;
-          left: 0px;
-          overflow: hidden;
+        width: 100%;
+        height: 500px;
+        background: url("/Images/General/home-banner-scaled.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 1;
+        left: 0px;
+        overflow: hidden;
       }
+
       .main-txt {
         margin-top: 30px;
         font-family: Inter;
-          font-weight: Extra Bold;
-          font-size: 50px;
-          color: rgba(255,255,255);
+        font-weight: Extra Bold;
+        font-size: 50px;
+        color: rgba(255, 255, 255);
       }
+
       footer {
         width: 100%;
         height: 500px;
@@ -112,6 +122,7 @@
         bottom: 0px;
         background-size: cover;
       }
+
       .footer-elements {
         width: 100%;
         height: 500px;
@@ -120,49 +131,57 @@
         align-items: center;
         position: relative;
       }
-      .footer-1, .footer-2, .footer-3{
+
+      .footer-1,
+      .footer-2,
+      .footer-3 {
         width: 298px;
         height: 411px;
         background-color: white;
         border-radius: 20px;
         position: relative;
       }
+
       .banking-all {
         width: 80px;
-          height: 80px;
-          margin: auto;
-          margin-top: 60px;
-          background: url("/Images/General/banking.png");
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
+        height: 80px;
+        margin: auto;
+        margin-top: 60px;
+        background: url("/Images/General/banking.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
       }
+
       .banking-us {
         width: 80px;
-          height: 80px;
-          margin: auto;
-          margin-top: 60px;
-          background: url("/Images/General/banking-business.png");
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
+        height: 80px;
+        margin: auto;
+        margin-top: 60px;
+        background: url("/Images/General/banking-business.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
       }
+
       .banking-me {
         width: 80px;
-          height: 80px;
-          margin: auto;
-          margin-top: 60px;
-          background: url("/Images/General/banking-me.png");
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
+        height: 80px;
+        margin: auto;
+        margin-top: 60px;
+        background: url("/Images/General/banking-me.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
       }
-      .footer-txt{
-          color: rgba(8, 82, 43, 0.9399999976158142);
-          font-family: Inter;
-          font-weight: Medium;
-          font-size: 30px;
+
+      .footer-txt {
+        color: rgba(8, 82, 43, 0.9399999976158142);
+        font-family: Inter;
+        font-weight: Medium;
+        font-size: 30px;
       }
+
       .info {
         background-color: rgba(8, 82, 43, 0.9399999976158142);
         position: absolute;
@@ -172,19 +191,21 @@
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
       }
-      .info span{
+
+      .info span {
         width: 260px;
-          color: rgba(255, 255, 255, 1);
-          position: absolute;
-          top: 30px;
-          left: 23px;
-          font-family: Inter;
-          font-weight: Regular;
-          font-size: 30px;
-          opacity: 1;
-          text-align: left;
+        color: rgba(255, 255, 255, 1);
+        position: absolute;
+        top: 30px;
+        left: 23px;
+        font-family: Inter;
+        font-weight: Regular;
+        font-size: 30px;
+        opacity: 1;
+        text-align: left;
       }
     </style>
   </div>
 </body>
+
 </html>

@@ -5,17 +5,17 @@ use CodeIgniter\Model;
 use Config\Database;
 
 class UserModel extends Model{
-    protected $allowedFields=['FirstName','LastName', 'Gender','EmailAddress','Password','Amount','UserId'];
+    protected $allowedFields=['UserId','FirstName','LastName', 'Gender','Email','Password','Amount','PhysicalAddress','Profession', 'CardNumber'];
     protected $primaryKey='UserId';
     protected $table='users';
     protected $db,$builder;
 
     public function __construct(){
-        $db=\Config\Database::connect();
+        $db=Database::connect();
         $this->builder=$db->table('users');
     }
 
-    public function getALlUsers(){
+    public function getAllUsers(){
         return $this->builder->get()->getResultArray();
     }
 
@@ -23,9 +23,11 @@ class UserModel extends Model{
         $this->builder->insert($data);
     }
 
-    public function getUserWhere($data){
-        return $this->builder->where($data)->get()->getResultArray()[0];
+    public function getUserWhere($condition){
+        return $this->builder->where($condition)->get()->getResultArray()[0];
     }
+
+    
 }
 
 ?>
