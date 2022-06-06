@@ -18,6 +18,10 @@ class TransactionModel extends Model{
     public function insertTransaction($data){
         $this->builder->insert($data);
     }
+
+    public function getAllTransactions(){
+        return $this->builder->get()->getResultArray();
+    }
 }
 
 ?>

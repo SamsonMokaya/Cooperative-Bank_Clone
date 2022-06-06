@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/User/HomePage.css">
+    <link rel="stylesheet" href="/css/User/DepWithPage.css">
     <title>Sign up</title>
 </head>
 
@@ -27,13 +29,13 @@
                     <div class="col-md-2"> <i class="bi bi-wallet2"></i> </div>
                     <div class="col-md-10"> <a href="<?= base_url("user_DepWithPage/") ?>" style="text-decoration: none; color:white;">Deposits and Withdawals </a> </div>
                 </div>
-                <div class="row">
+                <div class="row" style="background-color:#0B6C4D;border-radius:5%;">
                     <div class="col-md-2"> <i class="bi bi-clock-history"></i> </div>
                     <div class="col-md-10"> <a href="<?= base_url("user_TransHistoryPage/") ?>" style="text-decoration: none; color:white;"> Transactions History </a> </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2"> <i class="bi bi-arrow-counterclockwise"></i> </div>
-                    <div class="col-md-10"> <a href="<?= base_url("user_ReversalsPage/") ?>" style="text-decoration: none; color:white;"> Reversals </a> </div>
+                    <div class="col-md-10"> <a href="<?= base_url("user_ReversalsPage/")?>" style="text-decoration: none; color:white;"> Reversals </a> </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2"> <i class="bi bi-box-arrow-right"></i> </div>
@@ -48,16 +50,14 @@
                                         <h5 class="modal-title" style="color:black;"> Would you like to rate us?</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="<?= base_url("user_logout/") ?>" method="POST">
+                                    <form action="<?= base_url("user_logout/") ?>">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
                                             <input type="range" class="form-control" id="rating" name="rating" min="1" max="5" style="color:white;">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            <a href="<?= base_url("showWelcomePage/") ?>" style="text-decoration: none;color:white;"> No </a>
-                                        </button>
+                                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                                         <button type="submit" class="btn btn-primary">Rate Us</button>
                                     </div>
                                     </form>
@@ -71,72 +71,9 @@
             <div class="col-sm-12 col-md-9 right-content" style="display: inline;">
                 <div class="row" style="padding: 3%;"> <span style="text-align: right; font-size:24px; color: #021C03;">☀️ Welcome, <em> <?= session()->get('userName') ?> </em></span>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="card" style="padding: 3%;">
-                            <div class="card-header" style="background-color: #021C03; color:white;">Current Balance
-                            </div>
-                            <div class="card-body" style="margin-bottom: 3%;">
-                                <h4 class="card-title" style="font-size: 5em;"> $
-                                    <?= session()->get('amount') ?>
-                                </h4>
-                            </div>
-                            <div class="card-footer" style="padding-top: 7%;">
-                                Client Id :
-                                <?= session()->get('userId') ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="card" style="padding: 3%;">
-                            <div class="card-header" style="background-color: #021C03; color:white;">Debit Card
-                            </div>
-                            <div class="card-body">
-                                <img src="/Images/General/debit.jpg" alt="Debit Card" height="30%" width="50%">
-                            </div>
-                            <div class="card-footer">
-                                Card Number : <?= session()->get('cardNumber') ?>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6" style="text-align: left;">
-                        <div class="card" style="padding: 5%;">
-                            <div class="card-header" style="background-color: #021C03; color:white;">More
-                                information</div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        Number of deposits
-                                    </div>
-                                    <div class="col-md-6">
-                                        Number of widthdrawals
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        Average number of deposits
-                                    </div>
-                                    <div class="col-md-6">
-                                        Average number of widthdrawals
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="card" style="padding: 5%;">
-                            <div class="card-header" style="background-color: #021C03; color:white;">Notifications
-                            </div>
-                            <div class="card-body" style="overflow-y: scroll; height:8em;">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

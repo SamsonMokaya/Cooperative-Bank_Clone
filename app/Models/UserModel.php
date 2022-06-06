@@ -24,7 +24,7 @@ class UserModel extends Model{
     }
 
     public function getUserWhere($condition){
-        return $this->builder->where($condition)->get()->getResultArray()[0];
+        return count($this->builder->where($condition)->get()->getResultArray())>0?$this->builder->where($condition)->get()->getResultArray()[0]:'No-User';
     }
 
     

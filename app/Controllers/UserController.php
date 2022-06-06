@@ -3,11 +3,11 @@
 namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\TransactionModel;
+use App\Models\RatingModel;
 
 class UserController extends BaseController
 {
-    public function signUp()
-    {
+    public function signUp(){
         $firstName = $this->request->getPost('FirstName');
         $lastName = $this->request->getPost('LastName');
         $email = $this->request->getPost('Email');
@@ -41,17 +41,23 @@ class UserController extends BaseController
         }
     }
 
-    public function signIn()
-    {
+    public function signIn(){
         $email = $this->request->getPost('Email');
         $password = $this->request->getPost('Password');
         $userModel = new UserModel();
+        $transactionModel=new TransactionModel();
         if ($email == 'admin@gmail.com' && $password == 'admin') {
-            echo "<script> alert('Welcome Admin'); </script>";
+            echo "<script> alert('Successful login !'); </script>";
+            $users=$userModel->getAllUsers();
+            $transactions=$transactionModel->getAllTransactions();
+            session()->set('users',$users);
+            session()->set('transactions',$transactions);
+            session()->set('userId', 0);
+            return redirect()->to(base_url('admin_HomePage'));
         } else {
             $password = hash('md5', $password);
             $user = $userModel->getUserWhere(['Email' => $email, 'Password' => $password]);
-            if ($user) {
+            if ($user!='No-User') {
                 $userId=$user['UserId'];
                 $amount=$user['Amount'];
                 $userName=$user['FirstName'].' '.$user['LastName'];
@@ -64,6 +70,7 @@ class UserController extends BaseController
                 return redirect()->route('user_HomePage');
             } else {
                 echo "<script> alert('Invalid Email or Password'); </script>";
+                echo view('General/SignInPage');
             }
         }
     }
@@ -98,6 +105,27 @@ class UserController extends BaseController
             echo "<script> alert('Invalid Type'); </script>";
         }
         echo view('User/DepWithPage');
+    }
+
+    public function showTransHistoryPage(){
+        echo view('User/TransHistoryPage');
+    }
+
+    public function showReversalsPage(){
+        echo view('User/ReversalsPage');
+    }
+
+    public function logout(){
+        $rating=$this->request->getPost('rating');
+        $ratingModel=new RatingModel();
+        $data=[
+            'UserId'=>session()->get('userId'),
+            'Rating'=>$rating,
+        ];
+        $ratingModel->insertRating($data);
+        session()->destroy();
+        echo "<script> alert('User Successfully Logged Out !'); </script>";
+        echo view('General/WelcomePage');
     }
 
     

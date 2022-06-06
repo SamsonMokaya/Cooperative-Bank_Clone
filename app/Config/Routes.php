@@ -50,6 +50,9 @@ $user_routes_functions=[
     'user_HomePage/'=>'UserController::showHomePage',
     'user_DepWithPage/'=>'UserController::showDepWithPage',
     'user_DepWith/'=>'UserController::depositOrWithdraw',
+    'user_TransHistoryPage/'=>'UserController::showTransHistoryPage',
+    'user_ReversalsPage/'=>'UserController::showReversalsPage',
+    'user_logout/'=>'UserController::logout',
 ];
 foreach($user_routes_functions as $route=>$function){
     $routes->match(['get', 'post'], $route, $function);
@@ -57,7 +60,9 @@ foreach($user_routes_functions as $route=>$function){
 
 // admin routes
 $user_routes_functions=[
-    'admin/HomePage'=>'AdminController::showHomePage',
+    'admin_HomePage/'=>'AdminController::showHomePage',
+    'admin_ViewTransactions/'=>'AdminController::showTransactionsPage',
+    'admin_ViewReversals/'=>'AdminController::showReversalsPage',
 ];
 foreach($user_routes_functions as $route=>$function){
     $routes->match(['get', 'post'], $route, $function);
