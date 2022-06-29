@@ -31,7 +31,42 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'HomeController::showWelcomePage');
+
+// general routes
+$routes_and_functions=[
+    'showWelcomePage'=>'HomeController::showWelcomePage',
+    'showSignUpPage'=>'HomeController::showSignUpPage',
+    'showSignInPage'=>'HomeController::showSignInPage',
+];
+foreach ($routes_and_functions as $route=>$function){
+    $routes->match(['get', 'post'], $route, $function);
+}
+
+//user routes
+$user_routes_functions=[
+    'signUp/'=>'UserController::signUp',
+    'signIn/'=>'UserController::signIn',
+    'user_HomePage/'=>'UserController::showHomePage',
+    'user_DepWithPage/'=>'UserController::showDepWithPage',
+    'user_DepWith/'=>'UserController::depositOrWithdraw',
+    'user_TransHistoryPage/'=>'UserController::showTransHistoryPage',
+    'user_ReversalsPage/'=>'UserController::showReversalsPage',
+    'user_logout/'=>'UserController::logout',
+];
+foreach($user_routes_functions as $route=>$function){
+    $routes->match(['get', 'post'], $route, $function);
+}
+
+// admin routes
+$user_routes_functions=[
+    'admin_HomePage/'=>'AdminController::showHomePage',
+    'admin_ViewTransactions/'=>'AdminController::showTransactionsPage',
+    'admin_ViewReversals/'=>'AdminController::showReversalsPage',
+];
+foreach($user_routes_functions as $route=>$function){
+    $routes->match(['get', 'post'], $route, $function);
+}
 
 /*
  * --------------------------------------------------------------------
